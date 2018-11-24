@@ -17,14 +17,4 @@ namespace WebAPI.Models
 
     }
 }
-/*Product
-- id : string
-- name : string
-- price : double
-- amount : int
-- description : string
-- picture : string
 
-Cart
-- products : List<Product>
-*/
