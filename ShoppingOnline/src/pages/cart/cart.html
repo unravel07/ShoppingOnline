@@ -36,35 +36,58 @@
     </ion-row>
   </ion-item>
 
+
+  <div *ngFor="let Product of getProducts; let i = index">
+    <ion-row>
+      <!-- *ngFor="product of getProducts; let i = index" -->
+      <ion-col col-2 text-center>
+        {{i+1}}
+      </ion-col>
+      <ion-col col-3 text-center>
+        {{Product.name}}
+      </ion-col>
+      <ion-col col-2 text-center>
+        {{Product.amount}}
+      </ion-col>
+      <ion-col col-3 text-center>
+        {{Product.prices}}
+      </ion-col>
+      <ion-col col-2 text-center>
+        {{Product.amount * Product.prices}}
+      </ion-col>
+    </ion-row>
+  </div>
+
+
+  <ion-list>
+    <ion-item text-right>
+      <ion-label col-10>สถานที่จัดส่ง</ion-label>
+      <ion-select col-2 text-Center [(ngModel)]="address">
+        <ion-option [value]="1">ประเทศไทย</ion-option>
+        <ion-option [value]="2">ภายนอกประเทศ</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+
   <ion-item>
     <ion-row>
-      <ion-col col-2 text-center>
-        1
-      </ion-col>
-      <ion-col col-3  text-center>
-        แมว
+      <ion-col col-10 text-right>
+        ค่าจัดส่ง
       </ion-col>
       <ion-col col-2 text-center>
         10
       </ion-col>
-      <ion-col col-3 text-center>
-        400
-      </ion-col>
-      <ion-col col-2 text-center>
-        4000
-      </ion-col>
     </ion-row>
   </ion-item>
 
- 
-
   <ion-item>
     <ion-row>
-      <ion-col col-10 text-right  >
+      <ion-col col-10 text-right>
         ราคารวม
       </ion-col>
-      <ion-col col-2  text-center>
-        4000
+      <ion-col col-2 text-center>
+        {{result}}
+
       </ion-col>
     </ion-row>
   </ion-item>
