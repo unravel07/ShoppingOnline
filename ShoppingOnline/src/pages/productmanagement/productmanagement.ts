@@ -12,7 +12,7 @@ export class ProductmanagementPage {
   number: any;
   id: any;
   products: Product = new Product;
-  
+
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public http: HttpClient) {
   }
 
@@ -30,6 +30,17 @@ export class ProductmanagementPage {
 
   modal() {
     const modal = this.modalCtrl.create("ModalproductmanagementPage");
+    modal.onDidDismiss(data => {
+      console.log("CLose");
+      this.http.get<Product>("http://localhost:59039/api/Shopping/GetAllProduct").subscribe(
+        it => {
+          this.data = it
+          console.log(this.data);
+        },
+        error => {
+          // ERROR: Do something
+        });
+    });
     modal.present();
   }
   delete(id) {
@@ -45,6 +56,15 @@ export class ProductmanagementPage {
       error => {
         // ERROR: Do something
       });
+        this.http.get<Product>("http://localhost:59039/api/Shopping/GetAllProduct").subscribe(
+        it => {
+          this.data = it
+          console.log(this.data);
+        },
+        error => {
+          // ERROR: Do something
+        });
+
   }
   Edit(id) {
     this.id = this.data.id;
@@ -52,5 +72,16 @@ export class ProductmanagementPage {
       dataid: id
     });
     modal.present();
+    modal.onDidDismiss(data => {
+      console.log("CLose");
+      this.http.get<Product>("http://localhost:59039/api/Shopping/GetAllProduct").subscribe(
+        it => {
+          this.data = it
+          console.log(this.data);
+        },
+        error => {
+          // ERROR: Do something
+        });
+    });
   }
 }
