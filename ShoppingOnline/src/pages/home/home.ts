@@ -7,8 +7,9 @@ import { NavController } from 'ionic-angular';
 })
 export class HomePage {
 
+  segment: any;
   constructor(public navCtrl: NavController) {
-
+    this.segment = "shopping";
   }
 
 }

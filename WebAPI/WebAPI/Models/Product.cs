@@ -5,14 +5,16 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Models
 {
-    public class Lender
+    public class Product
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public string password { get; set; }
+        public string Prices { get; set; }
+        public string Amount { get; set; }
+        public string Description { get; set; }
+        public string Picture { get; set; }
+
+
     }
-
-
-
-
 }
+
