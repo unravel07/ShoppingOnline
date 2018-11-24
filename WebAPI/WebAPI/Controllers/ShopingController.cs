@@ -14,12 +14,12 @@ namespace WebAPI.Controllers
     [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
     [Route("api/[controller]/[action]")]
 
-    public class ShoopingController : Controller
+    public class ShopingController : Controller
     {
         IMongoCollection<Product> Product { get; set; }
         IMongoCollection<Cart> Cart { get; set; }
 
-        public ShoopingController()
+        public ShopingController()
         {
             var settings = MongoClientSettings.FromUrl(new MongoUrl("mongodb://krit_NA:thegigclubna2522@ds125322.mlab.com:25322/kritna"));
             settings.SslSettings = new SslSettings()
@@ -33,7 +33,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Product> getAllProduct()
+        public IEnumerable<Product> GetAllProduct()
         {
             var products = Product.Find(it => true).ToList();
             return products;
@@ -47,22 +47,33 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost]
-        public void addProdcut([FromBody]Product product)
+        public void AddProdcut([FromBody]Product product)
         {
             product.Id = Guid.NewGuid().ToString();
             Product.InsertOne(product);
         }
 
         [HttpPost]
-        public void editProduct([FromBody]Product product)
+        public void EditProduct([FromBody]Product product)
         {
             Product.ReplaceOne(it => it.Id == product.Id, product);
         }
 
         [HttpPost]
-        public void deleteProduct(string id)
+        public void DeleteProduct(string id)
         {
             Product.DeleteOne(it => it.Id == id);
+        }
+
+        [HttpGet]
+        public IEnumerable<Cart> GetProductInCart() {
+            var getProductInCart = Cart.Find(it => true).ToList();
+            return getProductInCart;
+        }
+
+        [HttpPost]
+        public void Purchase() {
+            Cart.DeleteMany(it => true);
         }
 
         /// Locker
