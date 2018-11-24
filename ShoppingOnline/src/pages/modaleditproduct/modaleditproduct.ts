@@ -22,7 +22,7 @@ export class ModaleditproductPage {
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
     this.dataid=navParams.get("dataid");
     console.log(this.dataid);
-    this.http.get<Product>("http://localhost:59039/api/Shoping/GetProduct/id?id="+this.dataid).subscribe(
+    this.http.get<Product>("http://localhost:59039/api/Shopping/GetProduct/id?id="+this.dataid).subscribe(
       it => {
         this.products = it
         console.log(this.products);
@@ -41,7 +41,7 @@ export class ModaleditproductPage {
   }
   Edit(){
     // http://localhost:59039/api/Shoping/EditProduct
-    this.http.post("http://localhost:59039/api/Shoping/EditProduct",
+    this.http.post("http://localhost:59039/api/Shopping/EditProduct",
       this.products
     ).subscribe(
         it => { 

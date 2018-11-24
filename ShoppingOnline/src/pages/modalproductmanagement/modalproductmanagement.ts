@@ -18,7 +18,7 @@ export class ModalproductmanagementPage {
   }
   product(){
     // let option = { "headers": { "Content-Type": "application/json" } };
-    this.http.post("http://localhost:59039/api/Shoping/AddProdcut",
+    this.http.post("http://localhost:59039/api/Shopping/AddProdcut",
       this.products
     ).subscribe(
         it => { 
