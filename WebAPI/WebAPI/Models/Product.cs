@@ -9,8 +9,8 @@ namespace WebAPI.Models
     {
         public string Id { get; set; }
         public string Name { get; set; }
-        public string Prices { get; set; }
-        public string Amount { get; set; }
+        public double Prices { get; set; }
+        public int Amount { get; set; }
         public string Description { get; set; }
         public string Picture { get; set; }
 
