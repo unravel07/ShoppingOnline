@@ -13,8 +13,6 @@ namespace WebAPI.Models
         public int Amount { get; set; }
         public string Description { get; set; }
         public string Picture { get; set; }
-
-
     }
 }
 
