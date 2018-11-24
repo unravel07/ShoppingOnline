@@ -25,5 +25,7 @@ export class ProductmanagementPage {
     const modal = this.modalCtrl.create("ModalproductmanagementPage");
     modal.present();
   }
-
+  delete(){
+    
+  }
 }
