@@ -6,148 +6,26 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content padding ngApp="onlineShopping">
 
-<div padding>
-  <ion-segment [(ngModel)]="segment">
-    <ion-segment-button value="shopping">
-      Shopping
-    </ion-segment-button>
+  <div padding>
+    <ion-segment [(ngModel)]="segment">
+      <ion-segment-button value="shopping">
+        Shopping
+      </ion-segment-button>
+      <ion-segment-button value="productsManagement">
+        Products Management
+      </ion-segment-button>
+      <ion-segment-button value="cart">
+        Cart
+      </ion-segment-button>
+    </ion-segment>
+  </div>
 
-    <ion-segment-button value="proMen">
-      Products Management
-    </ion-segment-button>
+  <ion-grid *ngIf="segment === 'shopping'">
+    <ion-row>
+      <shows-up-data header="Manutsawee"></shows-up-data>
+    </ion-row>
+  </ion-grid>
 
-    <ion-segment-button value="cart">
-      Cart
-    </ion-segment-button>
-  </ion-segment>
-</div>
-
-<ion-grid>
-<ion-row>
-<ion-col>
-<ion-card>
-<a href=""><img src="https://via.placeholder.com/400"></a>
-<ion-card-content>
-<ion-card-title>
-Nine Inch Nails Live
-</ion-card-title>
-<p>
-The most popular industrial group ever, and largely
-responsible for bringing the music to a mass audience.
-</p>
-</ion-card-content>
-</ion-card>
-</ion-col>
-
-<ion-col>
-<ion-card>
-<a href=""><img src="https://via.placeholder.com/400"></a>
-<ion-card-content>
-<ion-card-title>
-Nine Inch Nails Live
-</ion-card-title>
-<p>
-The most popular industrial group ever, and largely
-responsible for bringing the music to a mass audience.
-</p>
-</ion-card-content>
-</ion-card>
-</ion-col>
-
-<ion-col>
-<ion-card>
-<a href=""><img src="https://via.placeholder.com/400"></a>
-<ion-card-content>
-<ion-card-title>
-Nine Inch Nails Live
-</ion-card-title>
-<p>
-The most popular industrial group ever, and largely
-responsible for bringing the music to a mass audience.
-</p>
-</ion-card-content>
-</ion-card>
-</ion-col>
-
-<ion-col>
-<ion-card>
-<a href=""><img src="https://via.placeholder.com/1500"></a>
-<ion-card-content>
-<ion-card-title>
-Nine Inch Nails Live
-</ion-card-title>
-<p>
-The most popular industrial group ever, and largely
-responsible for bringing the music to a mass audience.
-</p>
-</ion-card-content>
-</ion-card>
-</ion-col>
-</ion-row>
-
-<ion-row>
-<ion-col>
-<ion-card>
-<a href=""><img src="https://via.placeholder.com/400"></a>
-<ion-card-content>
-<ion-card-title>
-Nine Inch Nails Live
-</ion-card-title>
-<p>
-The most popular industrial group ever, and largely
-responsible for bringing the music to a mass audience.
-</p>
-</ion-card-content>
-</ion-card>
-</ion-col>
-
-<ion-col>
-<ion-card>
-<a href=""><img src="https://via.placeholder.com/400"></a>
-<ion-card-content>
-<ion-card-title>
-Nine Inch Nails Live
-</ion-card-title>
-<p>
-The most popular industrial group ever, and largely
-responsible for bringing the music to a mass audience.
-</p>
-</ion-card-content>
-</ion-card>
-</ion-col>
-
-<ion-col>
-<ion-card>
-<a href=""><img src="https://via.placeholder.com/400"></a>
-<ion-card-content>
-<ion-card-title>
-Nine Inch Nails Live
-</ion-card-title>
-<p>
-The most popular industrial group ever, and largely
-responsible for bringing the music to a mass audience.
-</p>
-</ion-card-content>
-</ion-card>
-</ion-col>
-
-<ion-col>
-<ion-card>
-<a href=""><img src="https://via.placeholder.com/1500"></a>
-<ion-card-content>
-<ion-card-title>
-Nine Inch Nails Live
-</ion-card-title>
-<p>
-The most popular industrial group ever, and largely
-responsible for bringing the music to a mass audience.
-</p>
-</ion-card-content>
-</ion-card>
-</ion-col>
-</ion-row>
-
-</ion-grid>
 </ion-content>
