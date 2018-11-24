@@ -5,19 +5,26 @@ using System.Threading.Tasks;
 
 namespace WebAPI.Models
 {
-    public class BorrowList
+    public class Product
     {
         public string Id { get; set; }
-        public string LockerId { get; set; }
-        public string LockerName { get; set; }
-        public string LockerCate { get; set; }
-        public string LenderId { get; set; }
-        public string LenderName { get; set; }
-        public string BuddyId { get; set; }
-        public string BuddyName { get; set; }
-        public DateTime? Date { get; set; }
-        public List<Item> Items { get; set; }
+        public string Name { get; set; }
+        public string Prices { get; set; }
+        public string Amount { get; set; }
+        public string Description { get; set; }
+        public string Picture { get; set; }
 
 
     }
 }
+/*Product
+- id : string
+- name : string
+- price : double
+- amount : int
+- description : string
+- picture : string
+
+Cart
+- products : List<Product>
+*/
