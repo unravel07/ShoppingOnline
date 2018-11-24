@@ -17,23 +17,23 @@
   <ion-list>
     <ion-item>
       <ion-label floating>Name</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="name" name="name"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Price</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="number" [(ngModel)]="price" name="price"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Amount</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="number" [(ngModel)]="amount" name="amount"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Description</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="description" name="description"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>ImageUrl</ion-label>
-      <ion-input type="text"></ion-input>
+      <ion-input type="text" [(ngModel)]="picture" name="picture"></ion-input>
     </ion-item>
   </ion-list>
 

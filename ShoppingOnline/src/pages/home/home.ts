@@ -12,4 +12,8 @@ export class HomePage {
     this.segment = "shopping";
   }
 
+  product(){
+    this.navCtrl.push("ProductmanagementPage");
+  }
+
 }

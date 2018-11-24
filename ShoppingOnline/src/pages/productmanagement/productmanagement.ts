@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { Product } from '../../app/Model';
 
 /**
  * Generated class for the ProductmanagementPage page.
@@ -15,6 +16,8 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'productmanagement.html',
 })
 export class ProductmanagementPage {
+  data: any;
+  number: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams,public modalCtrl: ModalController,public http: HttpClient) {
   
@@ -47,6 +50,23 @@ export class ProductmanagementPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProductmanagementPage');
   }
+
+  ionViewDidEnter() {
+    this.http.get<Product>("http://localhost:59039/api/Shooping/getAllProduct").subscribe(
+      it => {
+          this.data = it
+          console.log(this.data);
+          this.number = this.data;
+          console.log("xxx");
+          console.log(this.number);
+
+      }, 
+      error => {
+          // ERROR: Do something
+      });
+  }
+
+
   modal(){
     const modal = this.modalCtrl.create("ModalproductmanagementPage");
     modal.present();
