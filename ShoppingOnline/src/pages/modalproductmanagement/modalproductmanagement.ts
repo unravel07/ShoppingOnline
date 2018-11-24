@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { HttpClient } from '@angular/common/http';
+import { Product } from '../../app/Model';
 
 @IonicPage()
 @Component({
@@ -8,12 +9,7 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: 'modalproductmanagement.html',
 })
 export class ModalproductmanagementPage {
-  mymodel:any = { };
-  name: any;
-  price: any;
-  amount: any;
-  description: any;
-  picture: any;
+  products:Product = new Product;
   constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
   }
 
@@ -21,16 +17,11 @@ export class ModalproductmanagementPage {
     console.log('ionViewDidLoad ModalproductmanagementPage');
   }
   product(){
-    let option = { "headers": { "Content-Type": "application/json" } };
-    this.http.post("http://localhost:59039/api/Shooping/addProdcut",
-    {
-      "name": this.name,
-      "price": this.price,
-      "amount": this.amount,
-      "description": this.description,
-      "picture": this.picture,
-    }).subscribe(
-        it => {
+    // let option = { "headers": { "Content-Type": "application/json" } };
+    this.http.post("http://localhost:59039/api/Shoping/AddProdcut",
+      this.products
+    ).subscribe(
+        it => { 
         // SUCCESS: Do something
         }, 
         error => {
@@ -38,7 +29,7 @@ export class ModalproductmanagementPage {
         }); 
 
 
-
+        this.navCtrl.pop();
 
   }
 }
