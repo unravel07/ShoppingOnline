@@ -12,11 +12,12 @@ export class ProductmanagementPage {
   number: any;
   id: any;
   products: Product = new Product;
+  
   constructor(public navCtrl: NavController, public navParams: NavParams, public modalCtrl: ModalController, public http: HttpClient) {
   }
 
   ionViewDidEnter() {
-    this.http.get<Product>("http://localhost:59039/api/Shoping/GetAllProduct").subscribe(
+    this.http.get<Product>("http://localhost:59039/api/Shopping/GetAllProduct").subscribe(
       it => {
         this.data = it
         console.log(this.data);
@@ -35,7 +36,7 @@ export class ProductmanagementPage {
     this.id = id;
     console.log(this.id);
     // http://localhost:59039/api/Shoping/DeleteProduct?id=
-    this.http.post("http://localhost:59039/api/Shoping/DeleteProduct?id=" + this.id,
+    this.http.post("http://localhost:59039/api/Shopping/DeleteProduct?id=" + this.id,
       this.products
     ).subscribe(
       it => {
