@@ -14,12 +14,12 @@ namespace WebAPI.Controllers
     [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
     [Route("api/[controller]/[action]")]
 
-    public class ShoopingController : Controller
+    public class ShoppingController : Controller
     {
         IMongoCollection<Product> Product { get; set; }
         IMongoCollection<Cart> Cart { get; set; }
 
-        public ShoopingController()
+        public ShoppingController()
         {
             var settings = MongoClientSettings.FromUrl(new MongoUrl("mongodb://krit_NA:thegigclubna2522@ds125322.mlab.com:25322/kritna"));
             settings.SslSettings = new SslSettings()
@@ -33,7 +33,7 @@ namespace WebAPI.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Product> getAllProduct()
+        public IEnumerable<Product> GetAllProduct()
         {
             var products = Product.Find(it => true).ToList();
             return products;
@@ -47,22 +47,42 @@ namespace WebAPI.Controllers
         }
 
         [HttpPost]
-        public void addProdcut([FromBody]Product product)
+        public void AddProdcut([FromBody]Product product)
         {
             product.Id = Guid.NewGuid().ToString();
             Product.InsertOne(product);
         }
 
         [HttpPost]
-        public void editProduct([FromBody]Product product)
+        public void EditProduct([FromBody]Product product)
         {
             Product.ReplaceOne(it => it.Id == product.Id, product);
         }
 
         [HttpPost]
-        public void deleteProduct(string id)
+        public void DeleteProduct(string id)
         {
             Product.DeleteOne(it => it.Id == id);
+        }
+
+        [HttpPost]
+        public void AddProductToCart(string id, int buyAmount)
+        {
+            var product = Product.Find(it => it.Id == id).FirstOrDefault();
+            product.Amount -= buyAmount;
+            Product.ReplaceOne(it => it.Id == id, product);
+            product.Amount = buyAmount;
+            var cart = Cart.Find(it => it.Id == "ShoppingOnline").FirstOrDefault();
+            cart.Products.Add(product);
+            Cart.ReplaceOne(it => it.Id == "ShoppingOnline", cart);
+        }
+
+        [HttpPost]
+        public void CreateCart()
+        {
+            var cart = new Cart();
+            cart.Id = "ShoppingOnline";
+            Cart.InsertOne(cart);
         }
 
         /// Locker
