@@ -12,7 +12,7 @@ using WebAPI.Models;
 namespace WebAPI.Controllers
 {
     [ResponseCache(Location = ResponseCacheLocation.None, NoStore = true)]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
 
     public class ShoopingController : Controller
     {
