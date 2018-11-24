@@ -17,7 +17,7 @@ import { Product } from '../../app/Model';
   templateUrl: 'cart.html',
 })
 export class CartPage {
-  result: number;
+  result: number = 0;
   amount: number;
   price: number;
   address: string;
@@ -36,11 +36,10 @@ export class CartPage {
       });
   }
 
-  funcCal(data) {
+  funcCal(data: Product[]) {
     console.log(data)
     for (var i = 0; i < data.length; i++) {
-    
-      this.result = this.result+(data[i].amount * data[i].prices);
+      this.result += (data[i].amount * data[i].prices);
     }
     console.log(this.result)
   }
