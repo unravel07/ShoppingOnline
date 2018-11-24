@@ -21,6 +21,7 @@ export class ProductDetailPage {
   products: Product = new Product;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: HttpClient) {
+    this.Pid = navParams.data("product");
     this.http.get<Product>("http://localhost:5000/api/Shooping/GetProduct/"+this.Pid)
     .subscribe(data => {
       this.products = data
