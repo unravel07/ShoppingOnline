@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
-/**
- * Generated class for the ModalproductmanagementPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { HttpClient } from '@angular/common/http';
+import { Product } from '../../app/Model';
 
 @IonicPage()
 @Component({
@@ -14,14 +9,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'modalproductmanagement.html',
 })
 export class ModalproductmanagementPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  products:Product = new Product;
+  constructor(public navCtrl: NavController, public navParams: NavParams,public http: HttpClient) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalproductmanagementPage');
   }
   product(){
+    // let option = { "headers": { "Content-Type": "application/json" } };
+    this.http.post("http://localhost:59039/api/Shopping/AddProdcut",
+      this.products
+    ).subscribe(
+        it => { 
+        // SUCCESS: Do something
+        }, 
+        error => {
+            // ERROR: Do something
+        }); 
+
+
+        this.navCtrl.pop();
 
   }
 }

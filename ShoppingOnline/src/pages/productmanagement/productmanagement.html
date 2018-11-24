@@ -23,12 +23,13 @@
       <ion-col col-2 >จำนวน</ion-col>
       <ion-col col-1 ></ion-col>
     </ion-row>
-    <ion-row>
-      <ion-col col-2>1</ion-col>
-      <ion-col col-5>TV Apple 55</ion-col>
-      <ion-col col-2>28000</ion-col>
-      <ion-col col-2>1</ion-col>
-      <ion-col col-1><button ion-button color="danger" (click)="delete()">Delete</button></ion-col>
+    <ion-row *ngFor="let product of data; let i = index">
+        <ion-col col-2>{{i + 1}}</ion-col>
+        <ion-col col-5>{{product.name}}</ion-col>
+        <ion-col col-2>{{product.prices}}</ion-col>
+        <ion-col col-1>{{product.amount}}</ion-col>
+        <ion-col col-1><button ion-button color="Secondary" (click)="Edit(product.id)">Edit</button></ion-col>
+        <ion-col col-1><button ion-button color="danger" (click)="delete(product.id)">Delete</button></ion-col>
     </ion-row>
 
   </ion-grid>

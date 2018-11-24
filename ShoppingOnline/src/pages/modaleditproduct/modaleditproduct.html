@@ -1,5 +1,5 @@
 <!--
-  Generated template for the ModalproductmanagementPage page.
+  Generated template for the ModaleditproductPage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,12 +7,10 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>modalproductmanagement</ion-title>
+    <ion-title>modaleditproduct</ion-title>
   </ion-navbar>
 
 </ion-header>
-
-
 <ion-content padding>
   <ion-list>
     <ion-item>
@@ -21,7 +19,7 @@
     </ion-item>
     <ion-item>
       <ion-label floating>Price</ion-label>
-      <ion-input type="number" [(ngModel)]="products.prices" ></ion-input>
+      <ion-input type="number" [(ngModel)]="products.prices"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>Amount</ion-label>
@@ -29,7 +27,7 @@
     </ion-item>
     <ion-item>
       <ion-label floating>Description</ion-label>
-      <ion-input type="text" [(ngModel)]="products.description" ></ion-input>
+      <ion-input type="text" [(ngModel)]="products.description"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label floating>ImageUrl</ion-label>
@@ -39,7 +37,7 @@
 
   <ion-footer>
     <ion-toolbar>
-      <button ion-button block (click)="product()">OK</button>
+      <button ion-button block (click)="Edit()">OK</button>
     </ion-toolbar>
   </ion-footer>
 </ion-content>
