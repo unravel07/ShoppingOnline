@@ -23,7 +23,7 @@ export class HomePage {
 
   goDetail(productID: string) {
     this.http.get("http://localhost:5000/api/Shoping/GetProduct/" + productID).subscribe(data => {
-      this.navCtrl.push(ProductDetailPage, {product: data});
+      this.navCtrl.push(ProductDetailPage, {product: productID});
     });
   }
 }
