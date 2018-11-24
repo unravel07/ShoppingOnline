@@ -23,7 +23,17 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddCors();
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAllHeaders",
+                      builder =>
+                      {
+                          builder.AllowAnyOrigin()
+                                 .AllowAnyHeader()
+                                 .AllowAnyMethod();
+                      });
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -44,13 +54,13 @@ namespace WebAPI
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseCors(builder =>
-                builder.WithOrigins("*")
-                .AllowAnyHeader()
-            );
-            
+            //app.UseCors(builder =>
+            //    builder.WithOrigins("*")
+            //    .AllowAnyHeader()
+            //);
+            app.UseCors("AllowAllHeaders");
             app.UseStaticFiles();
-            
+
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
 
