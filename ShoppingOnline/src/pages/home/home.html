@@ -24,8 +24,29 @@
 
   <ion-grid *ngIf="segment === 'shopping'">
     <ion-row>
-      <shows-up-data header="Manutsawee"></shows-up-data>
+      <div *ngFor="let product of LoadData">
+        <ion-col col-4 col-x>
+          <ion-card (click)="goDetail(product.id)">
+            <a href=""><img src="https://via.placeholder.com/150"></a>
+            <ion-title>
+              {{ product.name }}
+            </ion-title>
+            <ion-card-content>
+              <div>
+                {{ product.description }}
+              </div>
+              <div>
+                {{ product.price }}
+              </div>
+              <div>
+                {{ product.description }}
+              </div>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </div>
     </ion-row>
+
   </ion-grid>
 
 </ion-content>

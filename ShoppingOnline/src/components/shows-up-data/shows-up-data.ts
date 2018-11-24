@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { copyInputAttributes } from 'ionic-angular/umd/util/dom';
+import { Product } from '../../app/Model';
 
 /**
  * Generated class for the ShowsUpDataComponent component.
@@ -9,13 +10,13 @@ import { copyInputAttributes } from 'ionic-angular/umd/util/dom';
  */
 @Component({
   selector: 'shows-up-data',
-  inputs: ['header'],
+  inputs: ['header', ],
   templateUrl: 'shows-up-data.html'
 })
 export class ShowsUpDataComponent {
 
   constructor() {
-    console.log('Hello ShowsUpDataComponent Component');
+    
   }
 
 }

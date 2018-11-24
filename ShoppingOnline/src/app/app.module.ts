@@ -11,7 +11,6 @@ import { ProductDetailPage } from '../pages/product-detail/product-detail';
 
 import { ShowsUpDataComponent } from '../components/shows-up-data/shows-up-data';
 
-
 import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
